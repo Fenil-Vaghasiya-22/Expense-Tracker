@@ -18,8 +18,13 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("models/gemini-1.5-flash-latest")
 
 # MongoDB setup (Replace localhost with your MongoDB URL if deploying online)
-client = MongoClient(os.getenv("MONGO_URI", "mongodb://localhost:27017/"))
-db = client["expense_app"]
+MONGO_URI = os.getenv("MONGO_URI")
+
+# Connect to MongoDB Atlas
+client = MongoClient(MONGO_URI)
+
+# Select database and collections
+db = client["expense_app"]  # Change to your database name
 users_collection = db["users"]
 
 # Expense categories
