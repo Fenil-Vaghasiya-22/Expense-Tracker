@@ -24,7 +24,7 @@ MONGO_URI = os.getenv("MONGO_URI")
 client = MongoClient(MONGO_URI)
 
 # Select database and collections
-db = client["expense_app"]  # Change to your database name
+db = client["22bce366"]  # Change to your database name
 users_collection = db["users"]
 
 # Expense categories
